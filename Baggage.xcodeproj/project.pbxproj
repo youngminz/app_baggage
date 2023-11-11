@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		044CAE642AFF662600672D3D /* BaggageClassifier.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 044CAE632AFF662600672D3D /* BaggageClassifier.mlpackage */; };
+		044CAE662AFF693800672D3D /* SUImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CAE652AFF693800672D3D /* SUImagePicker.swift */; };
 		047220F22AFD32B80034FD7D /* BaggageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047220F12AFD32B80034FD7D /* BaggageApp.swift */; };
 		047220F42AFD32B80034FD7D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047220F32AFD32B80034FD7D /* ContentView.swift */; };
 		047220F62AFD32B80034FD7D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047220F52AFD32B80034FD7D /* Item.swift */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		044CAE632AFF662600672D3D /* BaggageClassifier.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = BaggageClassifier.mlpackage; sourceTree = "<group>"; };
+		044CAE652AFF693800672D3D /* SUImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUImagePicker.swift; sourceTree = "<group>"; };
 		047220EE2AFD32B80034FD7D /* Baggage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baggage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		047220F12AFD32B80034FD7D /* BaggageApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaggageApp.swift; sourceTree = "<group>"; };
 		047220F32AFD32B80034FD7D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			children = (
 				047220F12AFD32B80034FD7D /* BaggageApp.swift */,
 				047220F32AFD32B80034FD7D /* ContentView.swift */,
+				044CAE652AFF693800672D3D /* SUImagePicker.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				047220F22AFD32B80034FD7D /* BaggageApp.swift in Sources */,
 				047221212AFD36810034FD7D /* MainViewModel.swift in Sources */,
 				044CAE642AFF662600672D3D /* BaggageClassifier.mlpackage in Sources */,
+				044CAE662AFF693800672D3D /* SUImagePicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
