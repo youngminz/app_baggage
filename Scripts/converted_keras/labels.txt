@@ -1,0 +1,3 @@
+0 coke
+1 airpod
+2 nothing

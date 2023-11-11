@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		044CAE642AFF662600672D3D /* BaggageClassifier.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 044CAE632AFF662600672D3D /* BaggageClassifier.mlpackage */; };
 		047220F22AFD32B80034FD7D /* BaggageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047220F12AFD32B80034FD7D /* BaggageApp.swift */; };
 		047220F42AFD32B80034FD7D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047220F32AFD32B80034FD7D /* ContentView.swift */; };
 		047220F62AFD32B80034FD7D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047220F52AFD32B80034FD7D /* Item.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		044CAE632AFF662600672D3D /* BaggageClassifier.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = BaggageClassifier.mlpackage; sourceTree = "<group>"; };
 		047220EE2AFD32B80034FD7D /* Baggage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baggage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		047220F12AFD32B80034FD7D /* BaggageApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaggageApp.swift; sourceTree = "<group>"; };
 		047220F32AFD32B80034FD7D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 		047220F02AFD32B80034FD7D /* Baggage */ = {
 			isa = PBXGroup;
 			children = (
+				044CAE632AFF662600672D3D /* BaggageClassifier.mlpackage */,
 				0472211F2AFD36590034FD7D /* Models */,
 				0472211E2AFD363D0034FD7D /* ModelViews */,
 				0472211D2AFD36210034FD7D /* Views */,
@@ -291,6 +294,7 @@
 				047220F62AFD32B80034FD7D /* Item.swift in Sources */,
 				047220F22AFD32B80034FD7D /* BaggageApp.swift in Sources */,
 				047221212AFD36810034FD7D /* MainViewModel.swift in Sources */,
+				044CAE642AFF662600672D3D /* BaggageClassifier.mlpackage in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
