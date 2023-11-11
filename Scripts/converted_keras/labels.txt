@@ -1,3 +1,4 @@
-0 coke
-1 airpod
+0 me
+1 wallet
 2 nothing
+3 cigarette

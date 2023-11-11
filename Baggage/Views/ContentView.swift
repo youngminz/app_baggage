@@ -11,8 +11,6 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            // Your existing content here
-            
             if let inputImage = pickedImage {
                 Image(uiImage: inputImage)
                     .resizable()
@@ -25,7 +23,7 @@ struct ContentView: View {
                 }
             }
             
-            Button("Press Me") {
+            Button("Take a Picture") {
                 self.showImagePicker = true
             }
             .padding()
@@ -44,7 +42,10 @@ struct ContentView: View {
     }
     
     private func classifyImage(_ image: UIImage) {
-        let result = try! baggageClassifier.prediction(input: BaggageClassifierInput(sequential_3_inputWith: image.cgImage!))
+        let result = try! baggageClassifier.prediction(input: BaggageClassifierInput(sequential_7_inputWith: image.cgImage!))
         print(result.classLabel)
+        
+        classificationResults = result.classLabel_probs.sorted(by: { $0.value > $1.value }).map { "\($0.key): \(Int($0.value * 100))%" }
+        
     }
 }
