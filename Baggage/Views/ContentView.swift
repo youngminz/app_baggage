@@ -48,7 +48,7 @@ class CameraProvider: NSObject, ObservableObject, AVCaptureVideoDataOutputSample
             self?.session.startRunning()
         }
     }
-    
+
     func endSession() {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             self?.session.stopRunning()
@@ -56,15 +56,25 @@ class CameraProvider: NSObject, ObservableObject, AVCaptureVideoDataOutputSample
     }
 
     private func setupCamera() {
-        guard let videoDevice = AVCaptureDevice.default(for: .video) else { return }
-        guard let videoInput = try? AVCaptureDeviceInput(device: videoDevice) else { return }
+        guard let videoDevice = AVCaptureDevice.default(for: .video) else {
+            print("No video device found")
+            return
+        }
+        guard let videoInput = try? AVCaptureDeviceInput(device: videoDevice) else {
+            print("Could not create video input")
+            return
+        }
 
         session.beginConfiguration()
         if session.canAddInput(videoInput) {
             session.addInput(videoInput)
+        } else {
+            print("Cannot add video input")
         }
         if session.canAddOutput(output) {
             session.addOutput(output)
+        } else {
+            print("Cannot add video output")
         }
         session.commitConfiguration()
         
@@ -117,6 +127,9 @@ struct CameraPreview: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: UIView, context: Context) {
-        cameraProvider.previewLayer.frame = uiView.bounds // 뷰의 경계를 기준으로 프리뷰 레이어의 프레임을 업데이트합니다.
+        // 뷰의 경계가 변경될 때마다 프리뷰 레이어의 크기도 같이 업데이트합니다.
+        DispatchQueue.main.async {
+            self.cameraProvider.previewLayer.frame = uiView.bounds
+        }
     }
 }
