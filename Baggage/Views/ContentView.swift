@@ -1,62 +1,50 @@
-//
-//  ContentView.swift
-//  Baggage
-//
-//  Created by 구영민 on 11/10/23.
-//
-
 import SwiftUI
-import SwiftData
+import Vision
+import UIKit
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
-    @StateObject var viewModel = MainViewModel()
-
+    @State private var showImagePicker: Bool = false
+    @State private var pickedImage: UIImage?
+    @State private var classificationResults: [String] = []
+    
+    private let baggageClassifier = try! BaggageClassifier()
+    
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
-                }
-                .onDelete(perform: deleteItems)
+        VStack {
+            // Your existing content here
+            
+            if let inputImage = pickedImage {
+                Image(uiImage: inputImage)
+                    .resizable()
+                    .scaledToFit()
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
+            
+            if !classificationResults.isEmpty {
+                ForEach(classificationResults, id: \.self) { result in
+                    Text(result)
                 }
             }
-        } detail: {
-            Text("Select an item")
+            
+            Button("Press Me") {
+                self.showImagePicker = true
+            }
+            .padding()
+            .background(Color.blue)
+            .foregroundColor(.white)
+            .cornerRadius(10)
+            
+            // Any other content
         }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
+        .sheet(isPresented: $showImagePicker) {
+            SUImagePicker() { image in
+                self.pickedImage = image
+                classifyImage(image)
             }
         }
     }
-}
-
-#Preview {
-    ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+    
+    private func classifyImage(_ image: UIImage) {
+        let result = try! baggageClassifier.prediction(input: BaggageClassifierInput(sequential_3_inputWith: image.cgImage!))
+        print(result.classLabel)
+    }
 }

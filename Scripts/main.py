@@ -6,7 +6,7 @@ model_path = "converted_keras/keras_model.h5"
 keras_model = tf.keras.models.load_model(model_path)
 
 # 이미지 입력 설정
-image_input = ct.ImageType(shape=(1, 224, 224, 3), scale=1/255.0)
+image_input = ct.ImageType(shape=(1, 224, 224, 3), scale=2/255.0, bias=(-1.0, -1.0, -1.0))
 
 # 라벨 파일에서 라벨 로드
 label_path = "converted_keras/labels.txt"
