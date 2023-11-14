@@ -111,12 +111,12 @@
 			children = (
 				04A81F9A2B03DC4200FEAC15 /* Extensions */,
 				04A81F972B03D8B500FEAC15 /* Info.plist */,
-				04A81F952B0370C400FEAC15 /* Fonts */,
-				044CAE632AFF662600672D3D /* BaggageClassifier.mlpackage */,
 				0472211F2AFD36590034FD7D /* Models */,
-				0472211E2AFD363D0034FD7D /* ModelViews */,
 				0472211D2AFD36210034FD7D /* Views */,
+				0472211E2AFD363D0034FD7D /* ViewModels */,
+				044CAE632AFF662600672D3D /* BaggageClassifier.mlpackage */,
 				047220F72AFD32B90034FD7D /* Assets.xcassets */,
+				04A81F952B0370C400FEAC15 /* Fonts */,
 				047220F92AFD32B90034FD7D /* Preview Content */,
 			);
 			path = Baggage;
@@ -158,12 +158,12 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		0472211E2AFD363D0034FD7D /* ModelViews */ = {
+		0472211E2AFD363D0034FD7D /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				047221202AFD36810034FD7D /* MainViewModel.swift */,
 			);
-			path = ModelViews;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		0472211F2AFD36590034FD7D /* Models */ = {
