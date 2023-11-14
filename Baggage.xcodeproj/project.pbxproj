@@ -20,6 +20,7 @@
 		047221212AFD36810034FD7D /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047221202AFD36810034FD7D /* MainViewModel.swift */; };
 		04A81F942B03703E00FEAC15 /* StartPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A81F932B03703E00FEAC15 /* StartPageView.swift */; };
 		04A81F982B03DAA800FEAC15 /* PoorStory-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04A81F962B0370CD00FEAC15 /* PoorStory-Regular.ttf */; };
+		04A81F9C2B03DC9000FEAC15 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A81F9B2B03DC9000FEAC15 /* ColorExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		04A81F932B03703E00FEAC15 /* StartPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPageView.swift; sourceTree = "<group>"; };
 		04A81F962B0370CD00FEAC15 /* PoorStory-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PoorStory-Regular.ttf"; sourceTree = "<group>"; };
 		04A81F972B03D8B500FEAC15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		04A81F9B2B03DC9000FEAC15 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		047220F02AFD32B80034FD7D /* Baggage */ = {
 			isa = PBXGroup;
 			children = (
+				04A81F9A2B03DC4200FEAC15 /* Extensions */,
 				04A81F972B03D8B500FEAC15 /* Info.plist */,
 				04A81F952B0370C400FEAC15 /* Fonts */,
 				044CAE632AFF662600672D3D /* BaggageClassifier.mlpackage */,
@@ -177,6 +180,14 @@
 				04A81F962B0370CD00FEAC15 /* PoorStory-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		04A81F9A2B03DC4200FEAC15 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				04A81F9B2B03DC9000FEAC15 /* ColorExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,6 +328,7 @@
 				047221212AFD36810034FD7D /* MainViewModel.swift in Sources */,
 				044CAE642AFF662600672D3D /* BaggageClassifier.mlpackage in Sources */,
 				044CAE662AFF693800672D3D /* SUImagePicker.swift in Sources */,
+				04A81F9C2B03DC9000FEAC15 /* ColorExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
