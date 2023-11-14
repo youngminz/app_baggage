@@ -18,6 +18,8 @@
 		0472210F2AFD32B90034FD7D /* BaggageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0472210E2AFD32B90034FD7D /* BaggageUITests.swift */; };
 		047221112AFD32B90034FD7D /* BaggageUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047221102AFD32B90034FD7D /* BaggageUITestsLaunchTests.swift */; };
 		047221212AFD36810034FD7D /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047221202AFD36810034FD7D /* MainViewModel.swift */; };
+		04A81F942B03703E00FEAC15 /* StartPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A81F932B03703E00FEAC15 /* StartPageView.swift */; };
+		04A81F982B03DAA800FEAC15 /* PoorStory-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04A81F962B0370CD00FEAC15 /* PoorStory-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,9 @@
 		0472210E2AFD32B90034FD7D /* BaggageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaggageUITests.swift; sourceTree = "<group>"; };
 		047221102AFD32B90034FD7D /* BaggageUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaggageUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		047221202AFD36810034FD7D /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		04A81F932B03703E00FEAC15 /* StartPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPageView.swift; sourceTree = "<group>"; };
+		04A81F962B0370CD00FEAC15 /* PoorStory-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PoorStory-Regular.ttf"; sourceTree = "<group>"; };
+		04A81F972B03D8B500FEAC15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +107,8 @@
 		047220F02AFD32B80034FD7D /* Baggage */ = {
 			isa = PBXGroup;
 			children = (
+				04A81F972B03D8B500FEAC15 /* Info.plist */,
+				04A81F952B0370C400FEAC15 /* Fonts */,
 				044CAE632AFF662600672D3D /* BaggageClassifier.mlpackage */,
 				0472211F2AFD36590034FD7D /* Models */,
 				0472211E2AFD363D0034FD7D /* ModelViews */,
@@ -143,6 +150,7 @@
 				047220F12AFD32B80034FD7D /* BaggageApp.swift */,
 				047220F32AFD32B80034FD7D /* ContentView.swift */,
 				044CAE652AFF693800672D3D /* SUImagePicker.swift */,
+				04A81F932B03703E00FEAC15 /* StartPageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -161,6 +169,14 @@
 				047220F52AFD32B80034FD7D /* Item.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		04A81F952B0370C400FEAC15 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				04A81F962B0370CD00FEAC15 /* PoorStory-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				047220FB2AFD32B90034FD7D /* Preview Assets.xcassets in Resources */,
+				04A81F982B03DAA800FEAC15 /* PoorStory-Regular.ttf in Resources */,
 				047220F82AFD32B90034FD7D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				047220F42AFD32B80034FD7D /* ContentView.swift in Sources */,
+				04A81F942B03703E00FEAC15 /* StartPageView.swift in Sources */,
 				047220F62AFD32B80034FD7D /* Item.swift in Sources */,
 				047220F22AFD32B80034FD7D /* BaggageApp.swift in Sources */,
 				047221212AFD36810034FD7D /* MainViewModel.swift in Sources */,
@@ -465,13 +483,15 @@
 				DEVELOPMENT_TEAM = 4WPXJVT762;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "수하물스캐너";
+				INFOPLIST_FILE = Baggage/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "수캐너";
 				INFOPLIST_KEY_NSCameraUsageDescription = "수하물을 촬영하기 위해 카메라 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -496,13 +516,15 @@
 				DEVELOPMENT_TEAM = 4WPXJVT762;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "수하물스캐너";
+				INFOPLIST_FILE = Baggage/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "수캐너";
 				INFOPLIST_KEY_NSCameraUsageDescription = "수하물을 촬영하기 위해 카메라 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
