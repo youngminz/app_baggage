@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct StartPageView: View {
+    @State private var showImagePicker: Bool = false
+    @State private var pickedImage: UIImage?
+    
     var body: some View {
         VStack {
             Spacer()
@@ -19,10 +22,19 @@ struct StartPageView: View {
 
             Spacer()
 
-            Image("StartPageButton")
+            Button(action: {
+                self.showImagePicker = true
+            }) {
+                Image("StartPageButton")
+            }
 
             Spacer()
         }
+        .fullScreenCover(isPresented: $showImagePicker, content: {
+            SUImagePicker { image in
+                self.pickedImage = image
+            }
+        })
     }
 }
 
