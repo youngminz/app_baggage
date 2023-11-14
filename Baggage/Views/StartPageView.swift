@@ -15,11 +15,11 @@ struct StartPageView: View {
             
             Spacer()
 
-            // 사진
+            Image("StartPageImage")
 
             Spacer()
 
-            // 시작하기 버튼
+            Image("StartPageButton")
 
             Spacer()
         }
