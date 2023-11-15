@@ -21,6 +21,7 @@
 		04A81F942B03703E00FEAC15 /* StartPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A81F932B03703E00FEAC15 /* StartPageView.swift */; };
 		04A81F982B03DAA800FEAC15 /* PoorStory-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04A81F962B0370CD00FEAC15 /* PoorStory-Regular.ttf */; };
 		04A81F9C2B03DC9000FEAC15 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A81F9B2B03DC9000FEAC15 /* ColorExtensions.swift */; };
+		04A81FA52B03E73800FEAC15 /* DetailPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A81FA42B03E73800FEAC15 /* DetailPageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		04A81F962B0370CD00FEAC15 /* PoorStory-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PoorStory-Regular.ttf"; sourceTree = "<group>"; };
 		04A81F972B03D8B500FEAC15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		04A81F9B2B03DC9000FEAC15 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
+		04A81FA42B03E73800FEAC15 /* DetailPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				047220F32AFD32B80034FD7D /* ContentView.swift */,
 				044CAE652AFF693800672D3D /* SUImagePicker.swift */,
 				04A81F932B03703E00FEAC15 /* StartPageView.swift */,
+				04A81FA42B03E73800FEAC15 /* DetailPageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				047220F42AFD32B80034FD7D /* ContentView.swift in Sources */,
 				04A81F942B03703E00FEAC15 /* StartPageView.swift in Sources */,
 				047220F62AFD32B80034FD7D /* Item.swift in Sources */,
+				04A81FA52B03E73800FEAC15 /* DetailPageView.swift in Sources */,
 				047220F22AFD32B80034FD7D /* BaggageApp.swift in Sources */,
 				047221212AFD36810034FD7D /* MainViewModel.swift in Sources */,
 				044CAE642AFF662600672D3D /* BaggageClassifier.mlpackage in Sources */,
