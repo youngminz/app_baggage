@@ -2,11 +2,23 @@ import SwiftUI
 
 struct StartPageView: View {
     @State private var showImagePicker: Bool = false
-    @State private var pickedImage: UIImage?
+    @State private var takenImage: UIImage = UIImage()
+    @State private var showResultPage: Bool = false
+    @StateObject var mainViewModel = MainViewModel()
     
     var body: some View {
         NavigationView {
             VStack {
+                NavigationLink(
+                    destination: ResultPageView(
+                        takenImage: takenImage,
+                        mainViewModel: mainViewModel
+                    ),
+                    isActive: $showResultPage
+                ) {
+                    EmptyView()
+                }
+                
                 Spacer()
                 
                 Text("우리만의 수하물 스캐너")
@@ -33,7 +45,8 @@ struct StartPageView: View {
             }
             .fullScreenCover(isPresented: $showImagePicker, content: {
                 SUImagePicker { image in
-                    self.pickedImage = image
+                    self.takenImage = image
+                    self.showResultPage = true
                 }
             })
         }
