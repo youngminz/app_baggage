@@ -7,19 +7,12 @@ struct ResultPageView: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        VStack {
-            HStack {
-                Button(action: {
-                    dismiss()
-                }) {
-                    Image("NavigationBarBackButton")
-                }
-                .padding(.leading, 10)
-
-                Spacer()
-            }
+        ZStack {
 
             ScrollView() {
+                Spacer()
+                    .frame(height: 60)
+                
                 Text("촬영 시 한 화면에 하나의 물품만 나오게 촬영해주세요")
                     .font(.custom("Jua-Regular", size: 16))
                     .foregroundColor(Color(hex: "4F4F4F"))
@@ -37,8 +30,22 @@ struct ResultPageView: View {
                             .padding(.vertical, 15)
                     }
                 }
-                .border(Color(hex: "97CBEB"), width: 2)
+                .border(Color(hex: "97CBEB"), width: 1)
                 .padding(.all, 5)
+            }
+            
+            VStack {
+                HStack {
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        Image("NavigationBarBackButton")
+                    }
+                    .padding(.leading, 10)
+
+                    Spacer()
+                }
+                Spacer()
             }
         }
         .navigationBarBackButtonHidden(true)
