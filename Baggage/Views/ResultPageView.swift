@@ -23,6 +23,7 @@ struct ResultPageView: View {
                         Image(uiImage: takenImage)
                             .resizable()
                             .scaledToFit()
+                            .padding(.all, 10)
                         
                         Text("스프레이류")
                             .font(.custom("Jua-Regular", size: 16))
@@ -41,6 +42,7 @@ struct ResultPageView: View {
                         Color(hex: "FFFFFF")
                         ZStack {
                             Color(hex: "F0F8FE")
+                            Image("ResultPageImage")
                             VStack {
                                 Spacer()
                                     .frame(height: 10)
