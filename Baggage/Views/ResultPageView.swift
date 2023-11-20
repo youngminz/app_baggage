@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ResultPageView: View {
     @State var takenImage: UIImage
+    @State var baggageItem: BaggageItem?
     @StateObject var mainViewModel: MainViewModel
     
     @Environment(\.dismiss) var dismiss
@@ -25,7 +26,7 @@ struct ResultPageView: View {
                             .scaledToFit()
                             .padding(.all, 10)
                         
-                        Text("스프레이류")
+                        Text(baggageItem?.classLabel ?? "분류 중...")
                             .font(.custom("Jua-Regular", size: 16))
                             .padding(.vertical, 15)
                     }
@@ -33,91 +34,110 @@ struct ResultPageView: View {
                 .border(Color(hex: "97CBEB"), width: 1)
                 .padding(.all, 5)
                 
-                Spacer()
-                    .frame(height: 20)
-                
-                ZStack {
-                    Color(hex: "B0D6ED")
+                if (baggageItem != nil) {
+                    Spacer()
+                        .frame(height: 20)
+                    
                     ZStack {
-                        Color(hex: "FFFFFF")
+                        Color(hex: "B0D6ED")
                         ZStack {
-                            Color(hex: "F0F8FE")
-                            Image("ResultPageImage")
-                            VStack {
-                                Spacer()
-                                    .frame(height: 10)
-                                
-                                HStack {
+                            Color(hex: "FFFFFF")
+                            ZStack {
+                                Color(hex: "F0F8FE")
+                                Image("ResultPageImage")
+                                VStack {
                                     Spacer()
+                                        .frame(height: 10)
+                                    
+                                    HStack {
+                                        Spacer()
 
-                                    Text("위탁")
-                                        .font(.custom("Jua-Regular", size: 16))
-                                        .foregroundColor(Color(hex: "4F4F4F"))
-
-                                    Spacer()
-
-                                    Text("기내")
-                                        .font(.custom("Jua-Regular", size: 16))
-                                        .foregroundColor(Color(hex: "4F4F4F"))
-
-                                    Spacer()
-                                }
-                                
-                                HStack {
-                                    Spacer()
-                                    Image("BaggageAllowedCircleIcon")
-                                    Spacer()
-                                    Image("BaggageConditionalTriangleIcon")
-                                    Spacer()
-                                }
-                                
-                                Spacer()
-                                    .frame(height: 65)
-
-                                VStack(alignment: .leading) {
-                                    Text("액체류")
-                                        .font(.custom("Jua-Regular", size: 30))
-                                        .foregroundColor(Color(hex: "4F4F4F"))
+                                        Text("위탁")
+                                            .font(.custom("Jua-Regular", size: 16))
+                                            .foregroundColor(Color(hex: "4F4F4F"))
 
                                         Spacer()
-                                            .frame(height: 30)
-                                    
-                                    BulletList(
-                                        listItems: [
-                                            "음료, 식품, 화장품 등 액체류(스프레이) 및 젤류(젤 또는 크림) 물품",
-                                            "컨텍트렌즈 세척액",
-                                            "개별 용기당 100ml 이하로 1인당 총 1L 용량의 비닐 지퍼백 1개",
-                                            "액체류 음식류인 수프, 김치, 된장, 고추장, 홍삼정 같은 것도 액체로 보아 동일하게 100ml 이하로 1L 비닐 지퍼팩에 담아 휴대 가능"
-                                        ],
-                                        listItemSpacing: 30,
-                                        bulletWidth: 20
-                                    )
-                                }
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.horizontal, 35)
-                                
-                                Spacer()
-                                    .frame(height: 75)
-                                
 
-                                Button(action: {
-                                    dismiss()
-                                }) {
-                                    Image("ResultPageButton")
+                                        Text("기내")
+                                            .font(.custom("Jua-Regular", size: 16))
+                                            .foregroundColor(Color(hex: "4F4F4F"))
+
+                                        Spacer()
+                                    }
+                                    
+                                    HStack {
+                                        Spacer()
+                                        
+                                        switch baggageItem?.checkedBaggage {
+                                        case .available:
+                                            Image("BaggageAllowedCircleIcon")
+                                        case .conditional:
+                                            Image("BaggageConditionalTriangleIcon")
+                                        case .unavailable:
+                                            Image("BaggageNotAllowedCrossIcon")
+                                        default:
+                                            Image("BaggageAllowedCircleIcon")
+                                        }
+                                        
+                                        Spacer()
+                                        
+                                        switch baggageItem?.carryOnBaggage {
+                                        case .available:
+                                            Image("BaggageAllowedCircleIcon")
+                                        case .conditional:
+                                            Image("BaggageConditionalTriangleIcon")
+                                        case .unavailable:
+                                            Image("BaggageNotAllowedCrossIcon")
+                                        default:
+                                            Image("BaggageAllowedCircleIcon")
+                                        }
+                                        
+                                        Spacer()
+                                    }
+                                    
+                                    Spacer()
+                                        .frame(height: 65)
+
+                                    VStack(alignment: .leading) {
+                                        Text(baggageItem?.policyName ?? "")
+                                            .font(.custom("Jua-Regular", size: 30))
+                                            .foregroundColor(Color(hex: "4F4F4F"))
+
+                                            Spacer()
+                                                .frame(height: 30)
+                                        
+                                        BulletList(
+                                            listItems: baggageItem?.policyItems ?? [],
+                                            listItemSpacing: 30,
+                                            bulletWidth: 20
+                                        )
+                                    }
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.horizontal, 35)
+
+                                    Spacer()
+                                        .frame(height: 75)
+
+                                    Button(action: {
+                                        dismiss()
+                                    }) {
+                                        Image("ResultPageButton")
+                                    }
+                                    
+                                    Spacer()
+                                        .frame(height: 30)
                                 }
-                                
-                                Spacer()
-                                    .frame(height: 30)
                             }
+                            .cornerRadius(30.0)
+                            .padding(.all, 5)
                         }
                         .cornerRadius(30.0)
-                        .padding(.all, 5)
+                        .padding(.all, 13)
+
                     }
                     .cornerRadius(30.0)
-                    .padding(.all, 13)
-
                 }
-                .cornerRadius(30.0)
+
             }
             
             VStack {
@@ -133,6 +153,14 @@ struct ResultPageView: View {
                 }
                 Spacer()
             }
+            
+            if (baggageItem == nil) {
+                ProgressView()
+
+                Color(hex: "000000")
+                    .opacity(0.5)
+                    .ignoresSafeArea()
+            }
         }
         .navigationBarBackButtonHidden(true)
     }
@@ -140,7 +168,11 @@ struct ResultPageView: View {
 }
 
 #Preview {
-    ResultPageView(takenImage: UIImage(), mainViewModel: MainViewModel())
+    ResultPageView(
+        takenImage: UIImage(),
+        baggageItem: MainViewModel().baggageItems[0],
+        mainViewModel: MainViewModel()
+    )
 }
 
 struct BulletList: View {
