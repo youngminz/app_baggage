@@ -156,15 +156,17 @@ struct ResultPageView: View {
             
             if (baggageItem == nil) {
                 ProgressView()
-
-                Color(hex: "000000")
-                    .opacity(0.5)
-                    .ignoresSafeArea()
             }
         }
         .navigationBarBackButtonHidden(true)
+        .onAppear {
+            if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] != "1" {
+                DispatchQueue.main.async(qos: .userInitiated) {
+                    baggageItem = mainViewModel.classifyImage(image: takenImage)
+                }
+            }
+        }
     }
-        
 }
 
 #Preview {
